@@ -20,6 +20,7 @@ gem "solid_cache"
 gem "solid_queue"
 gem "solid_cable"
 
+
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
 
@@ -44,6 +45,10 @@ group :development, :test do
 
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
+  gem 'devise'           # For handling user authentication
+  gem 'jwt'              # For encoding and decoding JSON Web Tokens
+  gem 'pundit'
+
 end
 
 

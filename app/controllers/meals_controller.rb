@@ -12,22 +12,25 @@ class MealsController < ApplicationController
 
     def create
         @meal = Meal.new(meal_params)
+        authorize @meal  # Pundit will call MealPolicy to check authorization
         if @meal.save
             render json: @meal, status: :created
         else
-            render json: @meal.errors, status: :unprocessable_entity
+            render json: { error: 'Failed to create meal' }, status: :unprocessable_entity
         end
     end
 
     def update
+        authorize @meal
         if @meal.update(meal_params)
             render json: @meal
         else
-            render json: @meal.errors, status: :unprocessable_entity
+            render json: { error: 'Failed to create meal' }, status: :unprocessable_entity
         end
     end
 
     def destroy
+        authorize @meal
         @meal.destroy
     end
 
