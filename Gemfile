@@ -44,6 +44,10 @@ group :development, :test do
 
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
+  gem 'devise'           # For handling user authentication
+  gem 'jwt'              # For encoding and decoding JSON Web Tokens
+  gem 'pundit'
+
 end
 
 
